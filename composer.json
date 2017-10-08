@@ -1,0 +1,26 @@
+{
+    "name": "jungle-bay/doctrine-set-type",
+    "require": {
+        "php": ">=5.4.0",
+        "doctrine/dbal": "~2.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Doctrine\\": "src/Doctrine/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Doctrine\\Tests\\": "tests/Doctrine/Tests/"
+        }
+    },
+    "scripts": {
+        "tests": [
+            "clear",
+            "phpunit --bootstrap vendor/autoload.php --coverage-clover=coverage.xml tests"
+        ]
+    }
+}
