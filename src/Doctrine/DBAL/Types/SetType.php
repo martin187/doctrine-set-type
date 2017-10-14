@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * Team: jungle
- * User: Roma Baranenko
- * Contacts: <sommelier.jungle@gmail.com>
- * Date: 12.06.17
- * Time: 23:26
- */
 
 namespace Doctrine\DBAL\Types;
 
@@ -19,9 +11,12 @@ abstract class SetType extends Type {
     /**
      * @return string[]
      */
-    protected abstract function getValue();
+    abstract protected function getValue();
 
 
+    /**
+     * {@inheritdoc}
+     */
     public function convertToDatabaseValue($value, AbstractPlatform $platform) {
 
         if (empty($value)) {
@@ -42,10 +37,16 @@ abstract class SetType extends Type {
         return implode(',', $value);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function convertToPHPValue($value, AbstractPlatform $platform) {
         return explode(',', $value);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform) {
 
         $allow = array_map(function ($type) {
@@ -55,6 +56,9 @@ abstract class SetType extends Type {
         return 'SET ( ' . implode(', ', $allow) . ' )';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function requiresSQLCommentHint(AbstractPlatform $platform) {
         return true;
     }

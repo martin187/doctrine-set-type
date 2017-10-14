@@ -15,7 +15,7 @@
          verbose="false">
 
     <testsuites>
-        <testsuite name="Doctrine Test Suite">
+        <testsuite name="Doctrine Set Type Test Suite">
             <directory>tests/Doctrine/Tests/</directory>
         </testsuite>
     </testsuites>
