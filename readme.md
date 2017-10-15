@@ -1,9 +1,19 @@
-# Doctrine Set Type
+# Set Type for [Doctrine](http://www.doctrine-project.org/)
 
 [![Travis CI](https://img.shields.io/travis/jungle-bay/doctrine-set-type.svg?style=flat)](https://travis-ci.org/jungle-bay/doctrine-set-type)
 [![Scrutinizer CI](https://img.shields.io/scrutinizer/g/jungle-bay/doctrine-set-type.svg?style=flat)](https://scrutinizer-ci.com/g/jungle-bay/doctrine-set-type)
 [![Codecov](https://img.shields.io/codecov/c/github/jungle-bay/doctrine-set-type.svg?style=flat)](https://codecov.io/gh/jungle-bay/doctrine-set-type)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/9f27fb41-a637-4fc7-a229-9096446b7dd6.svg?style=flat)](https://insight.sensiolabs.com/projects/9f27fb41-a637-4fc7-a229-9096446b7dd6)
+
+### Install (in a while)
+
+The recommended way to install is through [Composer](https://getcomposer.org):
+
+```bash
+composer require jungle-bay/doctrine-set-type
+```
+
+### The simplest example of use
 
 ```php
 <?php
@@ -39,4 +49,16 @@ class RolesType extends SetType {
 }
 ```
 
-Do not forget to register the type!
+> Warning!!! Do not forget to register the type!
+> 
+> ```php
+> <?php
+> 
+> Type::addType('roles_type', RolesType::class);
+> 
+> $conn->getDatabasePlatform()->registerDoctrineTypeMapping('roles', 'roles_type');
+> ```
+
+### License
+
+This bundle is under the [MIT license](http://opensource.org/licenses/MIT). See the complete license in the file: [here](https://github.com/jungle-bay/telegram-bot-api/blob/master/license.txt).
