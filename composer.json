@@ -1,6 +1,6 @@
 {
     "name": "jungle-bay/doctrine-set-type",
-    "description": "Doctrine Set Type",
+    "description": "Set Type for Doctrine",
     "type": "library",
     "keywords": [
         "php",
