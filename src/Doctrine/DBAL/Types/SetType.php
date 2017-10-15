@@ -36,7 +36,7 @@ abstract class SetType extends Type {
                 continue;
             }
 
-            throw new InvalidArgumentException('Invalid "' . $this->getName() . '" type, "' . $value . '" not allowed.');
+            throw new InvalidArgumentException('Invalid "' . $this->getName() . '" type, "' . $item . '" not allowed.');
         }
 
         return implode(',', $value);
