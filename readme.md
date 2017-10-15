@@ -49,11 +49,11 @@ class RolesType extends SetType {
 }
 ```
 
-> Warning!!! Do not forget to register the type!
+#### Warning
+
+> Do not forget to register the type!
 > 
 > ```php
-> <?php
-> 
 > Type::addType('roles_type', RolesType::class);
 > 
 > $conn->getDatabasePlatform()->registerDoctrineTypeMapping('roles', 'roles_type');
