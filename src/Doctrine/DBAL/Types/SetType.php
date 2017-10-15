@@ -41,7 +41,7 @@ abstract class SetType extends Type {
      * {@inheritdoc}
      */
     public function convertToPHPValue($value, AbstractPlatform $platform) {
-        return explode(',', $value);
+        return empty($value) ? null : explode(',', $value);
     }
 
     /**
