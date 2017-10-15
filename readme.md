@@ -54,6 +54,8 @@ class RolesType extends SetType {
 > Do not forget to register the type!
 > 
 > ```php
+> use Doctrine\DBAL\Types\Type;
+> 
 > Type::addType('roles_type', RolesType::class);
 > 
 > $conn->getDatabasePlatform()->registerDoctrineTypeMapping('roles', 'roles_type');
