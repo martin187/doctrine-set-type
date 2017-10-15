@@ -21,7 +21,12 @@ abstract class SetType extends Type {
 
         if (empty($value)) {
 
-            return $value;
+            return null;
+        }
+
+        if (!is_array($value)) {
+
+            throw new InvalidArgumentException('Error "' . $this->getName() . '" type, "' . $value . '" must be array.');
         }
 
         foreach ($value as $item) {
@@ -31,7 +36,7 @@ abstract class SetType extends Type {
                 continue;
             }
 
-            throw new InvalidArgumentException('Invalid ' . $this->getName() . ' type.');
+            throw new InvalidArgumentException('Invalid "' . $this->getName() . '" type, "' . $value . '" not allowed.');
         }
 
         return implode(',', $value);
@@ -41,7 +46,13 @@ abstract class SetType extends Type {
      * {@inheritdoc}
      */
     public function convertToPHPValue($value, AbstractPlatform $platform) {
-        return empty($value) ? null : explode(',', $value);
+
+        if (empty($value)) {
+
+            return null;
+        }
+
+        return explode(',', $value);
     }
 
     /**
@@ -53,7 +64,7 @@ abstract class SetType extends Type {
             return '\'' . $type . '\'';
         }, $this->getValue());
 
-        return 'SET ( ' . implode(', ', $allow) . ' )';
+        return 'SET ( ' . implode(',', $allow) . ' )';
     }
 
     /**
