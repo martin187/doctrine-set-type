@@ -29,11 +29,11 @@ class SetTypeTest extends TestCase {
         $mockBuilder = $mockBuilder->disableOriginalConstructor();
         $mockBuilder = $mockBuilder->setMethods(array('getValue', 'getName'));
 
-        /** @var SetType $mock */
         $mock = $mockBuilder->getMock();
         $mock->method('getName')->will($this->returnValue('test'));
         $mock->method('getValue')->will($this->returnValue(array('GET', 'SET')));
 
+        /** @var SetType $mock */
         return $mock;
     }
 

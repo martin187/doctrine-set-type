@@ -49,6 +49,24 @@ class RolesType extends SetType {
 }
 ```
 
+##### Example use entities
+
+```php
+<?php
+
+use Doctrine\ORM\Mapping as ORM;
+
+class User {
+    
+    /**
+     * @ORM\Column(
+     *     type = "roles_type"
+     * )
+     */
+    private $roles;
+}
+```
+
 #### Warning
 
 > Do not forget to register the type!
