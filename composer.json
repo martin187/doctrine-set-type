@@ -20,7 +20,7 @@
         "issues": "https://github.com/jungle-bay/doctrine-set-type/issues/"
     },
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.5",
         "doctrine/dbal": "^2.5"
     },
     "require-dev": {
@@ -45,8 +45,7 @@
             "*",
             ".*",
             "!src/*",
-            "!composer.json",
-            "!license.txt"
+            "!composer.json"
         ]
     }
 }
