@@ -42,11 +42,11 @@
     },
     "archive": {
         "exclude": [
-            "!vendor",
-            "tests",
-            "phpunit.xml",
-            ".travis.yml",
-            "composer.phar"
+            "*",
+            ".*",
+            "!src/*",
+            "!composer.json",
+            "!license.txt"
         ]
     }
 }

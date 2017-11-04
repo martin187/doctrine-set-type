@@ -3,23 +3,29 @@ sudo: false
 language: php
 
 env:
-  global:
-    - COMPOSER_ALLOW_XDEBUG=0
+  - COMPOSER_ALLOW_XDEBUG=0
 
-cache:
-  directories:
-    - $HOME/.composer/cache
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+  - nightly
+
+matrix:
+  allow_failures:
+  - php: nightly
 
 addons:
   apt:
     packages:
       - parallel
 
-php:
-  - 5.5
-  - 5.6
-  - 7.0
-  - 7.1
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 before_script:
     - composer install --no-interaction --no-suggest
@@ -28,7 +34,6 @@ script:
   - composer tests
 
 after_success:
+    - wget https://scrutinizer-ci.com/ocular.phar
+    - php ./ocular.phar code-coverage:upload --format=coverage-clover ./var/log/clover.xml
     - bash <(curl -s https://codecov.io/bash)
-
-notifications:
-    email: false
