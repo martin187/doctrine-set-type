@@ -3,7 +3,8 @@ sudo: false
 language: php
 
 env:
-  - COMPOSER_ALLOW_XDEBUG=0
+  global:
+    - COMPOSER_ALLOW_XDEBUG=0
 
 php:
   - 5.5
@@ -34,5 +35,5 @@ script:
 
 after_success:
     - wget https://scrutinizer-ci.com/ocular.phar
-    - php ./ocular.phar code-coverage:upload --format=coverage-clover ./var/log/clover.xml
+    - php ./ocular.phar code-coverage:upload --format=php-clover ./var/log/clover.xml
     - bash <(curl -s https://codecov.io/bash)
