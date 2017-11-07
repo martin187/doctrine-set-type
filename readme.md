@@ -54,6 +54,9 @@ class RolesType extends SetType {
 ```php
 <?php
 
+namespace Acme\Entities;
+
+
 use Doctrine\ORM\Mapping as ORM;
 
 class User {
