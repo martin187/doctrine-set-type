@@ -30,7 +30,7 @@ use Doctrine\DBAL\Types\SetType;
 
 class RolesType extends SetType {
 
-    const NAME = 'sex_type';
+    const NAME = 'roles_type';
 
     const ROLE_SUPER_USER_VALUE = 'ROLE_SUPER_USER';
     const ROLE_ADMIN_VALUE = 'ROLE_ADMIN';
