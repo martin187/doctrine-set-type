@@ -1,4 +1,12 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * Team: jungle
+ * User: Roma Baranenko
+ * Contacts: <jungle.romabb8@gmail.com>
+ * Date: 05.12.17
+ * Time: 18:50
+ */
 
 namespace Doctrine\DBAL\Types;
 
@@ -6,6 +14,11 @@ namespace Doctrine\DBAL\Types;
 use InvalidArgumentException;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 
+/**
+ * Class SetType
+ * @package Doctrine\DBAL\Types
+ * @author Roma Baranenko <jungle.romabb8@gmail.com>
+ */
 abstract class SetType extends Type {
 
     /**

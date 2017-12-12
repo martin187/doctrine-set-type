@@ -1,13 +1,18 @@
+<p align="center">
+    <a href="https://github.com/jungle-bay/doctrine-set-type">
+        <img height="128" src="logo.png" alt="Doctrine Logo">
+    </a>
+</p>
+
 # Set Type for [Doctrine](http://www.doctrine-project.org/)
 
 [![Travis CI](https://img.shields.io/travis/jungle-bay/doctrine-set-type.svg?style=flat)](https://travis-ci.org/jungle-bay/doctrine-set-type)
 [![Scrutinizer CI](https://img.shields.io/scrutinizer/g/jungle-bay/doctrine-set-type.svg?style=flat)](https://scrutinizer-ci.com/g/jungle-bay/doctrine-set-type)
 [![Codecov](https://img.shields.io/codecov/c/github/jungle-bay/doctrine-set-type.svg?style=flat)](https://codecov.io/gh/jungle-bay/doctrine-set-type)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/9f27fb41-a637-4fc7-a229-9096446b7dd6.svg?style=flat)](https://insight.sensiolabs.com/projects/9f27fb41-a637-4fc7-a229-9096446b7dd6)
 
 ### Install
 
-The recommended way to install is through [Composer](https://getcomposer.org):
+The recommended way to install is through [Composer](https://getcomposer.org/doc/00-intro.md#introduction):
 
 ```bash
 composer require jungle-bay/doctrine-set-type
@@ -25,26 +30,26 @@ use Doctrine\DBAL\Types\SetType;
 
 class RolesType extends SetType {
 
-    const ROLE_SUPER_USER = 'ROLE_SUPER_USER';
-    const ROLE_ADMIN = 'ROLE_ADMIN';
+    const NAME = 'sex_type';
 
-    const ROLE_USER = 'ROLE_USER';
-
-    const ROLE_NONE = 'ROLE_NONE';
+    const ROLE_SUPER_USER_VALUE = 'ROLE_SUPER_USER';
+    const ROLE_ADMIN_VALUE = 'ROLE_ADMIN';
+    const ROLE_USER_VALUE = 'ROLE_USER';
+    const ROLE_NONE_VALUE = 'ROLE_NONE';
 
 
     protected function getValue() {
         return array(
-            self::ROLE_SUPER_USER,
-            self::ROLE_ADMIN,
-            self::ROLE_USER,
-            self::ROLE_NONE
+            self::ROLE_SUPER_USER_VALUE,
+            self::ROLE_ADMIN_VALUE,
+            self::ROLE_USER_VALUE,
+            self::ROLE_NONE_VALUE
         );
     }
 
 
     public function getName() {
-        return 'roles_type';
+        return self::NAME;
     }
 }
 ```
@@ -59,6 +64,13 @@ namespace Acme\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity()
+ * 
+ * @ORM\Table(
+ *     name = "users"
+ * )
+ */
 class User {
     
     /**
@@ -72,14 +84,13 @@ class User {
 
 #### Warning
 
-> Do not forget to register the type!
+> Do not forget to register the [type](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/cookbook/custom-mapping-types.html)!
 > 
 > ```php
-> use Doctrine\DBAL\Types\Type;
-> 
-> Type::addType('roles_type', RolesType::class);
-> 
-> $conn->getDatabasePlatform()->registerDoctrineTypeMapping('roles', 'roles_type');
+> \Doctrine\DBAL\Types\TypeType::addType(RolesType::NAME, RolesType::class);
+>
+> $conn = $em->getConnection();
+> $conn->getDatabasePlatform()->registerDoctrineTypeMapping('roles', RolesType::NAME);
 > ```
 
 ### License

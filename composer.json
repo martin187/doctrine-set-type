@@ -5,8 +5,8 @@
     "keywords": [
         "php",
         "doctrine",
-        "set",
-        "type"
+        "doctrine-type",
+        "doctrine-type-set"
     ],
     "license": "MIT",
     "authors": [
