@@ -90,7 +90,6 @@ class User {
 > \Doctrine\DBAL\Types\TypeType::addType(RolesType::NAME, RolesType::class);
 >
 > /** @var \Doctrine\DBAL\Connection $conn */
-> $conn = $em->getConnection();
 > $conn->getDatabasePlatform()->registerDoctrineTypeMapping('roles', RolesType::NAME);
 > ```
 
