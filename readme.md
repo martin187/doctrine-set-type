@@ -1,14 +1,14 @@
 <p align="center">
-    <a href="https://github.com/jungle-bay/doctrine-set-type">
+    <a href="https://github.com/martin187/doctrine-set-type">
         <img height="128" src="logo.png" alt="Doctrine Logo">
     </a>
 </p>
 
 # Set Type for [Doctrine](http://www.doctrine-project.org/)
 
-[![Travis CI](https://img.shields.io/travis/jungle-bay/doctrine-set-type.svg?style=flat)](https://travis-ci.org/jungle-bay/doctrine-set-type)
-[![Scrutinizer CI](https://img.shields.io/scrutinizer/g/jungle-bay/doctrine-set-type.svg?style=flat)](https://scrutinizer-ci.com/g/jungle-bay/doctrine-set-type)
-[![Codecov](https://img.shields.io/codecov/c/github/jungle-bay/doctrine-set-type.svg?style=flat)](https://codecov.io/gh/jungle-bay/doctrine-set-type)
+[//]: # ([![Travis CI]&#40;https://img.shields.io/travis/martin187/doctrine-set-type.svg?style=flat&#41;]&#40;https://travis-ci.org/jungle-bay/doctrine-set-type&#41;)
+[//]: # ([![Scrutinizer CI]&#40;https://img.shields.io/scrutinizer/g/martin187/doctrine-set-type.svg?style=flat&#41;]&#40;https://scrutinizer-ci.com/g/martin187/doctrine-set-type&#41;)
+[//]: # ([![Codecov]&#40;https://img.shields.io/codecov/c/github/martin187/doctrine-set-type.svg?style=flat&#41;]&#40;https://codecov.io/gh/martin187/doctrine-set-type&#41;)
 
 ### Install
 
@@ -66,13 +66,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
- * 
+ *
  * @ORM\Table(
  *     name = "users"
  * )
  */
 class User {
-    
+
     /**
      * @ORM\Column(
      *     type = "roles_type"
@@ -85,7 +85,7 @@ class User {
 #### Warning
 
 > Do not forget to register the [type](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/cookbook/custom-mapping-types.html)!
-> 
+>
 > ```php
 > \Doctrine\DBAL\Types\TypeType::addType(RolesType::NAME, RolesType::class);
 >
@@ -95,4 +95,4 @@ class User {
 
 ### License
 
-This bundle is under the [MIT license](http://opensource.org/licenses/MIT). See the complete license in the file: [here](https://github.com/jungle-bay/doctrine-set-type/blob/master/license.txt).
+This bundle is under the [MIT license](http://opensource.org/licenses/MIT). See the complete license in the file: [here](https://github.com/martin187/doctrine-set-type/blob/master/license.txt).

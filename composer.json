@@ -22,7 +22,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/jungle-bay/doctrine-set-type/issues/"
+        "issues": "https://github.com/martin187/doctrine-set-type/issues/"
     },
     "require": {
         "php": "^8.1",
