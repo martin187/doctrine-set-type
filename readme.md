@@ -15,7 +15,7 @@
 The recommended way to install is through [Composer](https://getcomposer.org/doc/00-intro.md#introduction):
 
 ```bash
-composer require jungle-bay/doctrine-set-type
+composer require martin187/doctrine-set-type
 ```
 
 ### The simplest example of use
