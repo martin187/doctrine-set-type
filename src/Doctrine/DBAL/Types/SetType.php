@@ -35,7 +35,9 @@ abstract class SetType extends Type {
         if (empty($value)) {
 
             return null;
-        } elseif (!is_array($value)) {
+        }
+
+        if (!is_array($value)) {
 
             throw new InvalidArgumentException('Error "' . $this->getName() . '" type, "' . $value . '" must be array.');
         }

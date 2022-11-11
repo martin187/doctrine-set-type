@@ -40,11 +40,11 @@ class SetTypeTest extends TestCase {
 
         $mockBuilder = $this->getMockBuilder(SetType::class);
         $mockBuilder = $mockBuilder->disableOriginalConstructor();
-        $mockBuilder = $mockBuilder->setMethods(array('getValue', 'getName'));
+        $mockBuilder = $mockBuilder->setMethods(['getValue', 'getName']);
 
         $mock = $mockBuilder->getMock();
         $mock->method('getName')->will($this->returnValue('test'));
-        $mock->method('getValue')->will($this->returnValue(array('GET', 'SET')));
+        $mock->method('getValue')->will($this->returnValue(['GET', 'SET']));
 
         /** @var SetType $mock */
         return $mock;
@@ -58,25 +58,21 @@ class SetTypeTest extends TestCase {
         $this->assertNull($result);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testConvertToDatabaseValueNotArray() {
+        $this->expectException(\InvalidArgumentException::class);
 
-        $this->getType()->convertToDatabaseValue('NOT_ALLOWED', $this->getPlatform());
+        $this->getType()->convertToDatabaseValue(['NOT_ALLOWED'], $this->getPlatform());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testConvertToDatabaseValueNotAllowed() {
+        $this->expectException(\InvalidArgumentException::class);
 
-        $this->getType()->convertToDatabaseValue(array('NOT_ALLOWED'), $this->getPlatform());
+        $this->getType()->convertToDatabaseValue(['NOT_ALLOWED'], $this->getPlatform());
     }
 
     public function testConvertToDatabaseValue() {
 
-        $result = $this->getType()->convertToDatabaseValue(array('GET'), $this->getPlatform());
+        $result = $this->getType()->convertToDatabaseValue(['GET'], $this->getPlatform());
 
         $this->assertEquals('GET', $result);
     }
@@ -92,12 +88,12 @@ class SetTypeTest extends TestCase {
 
         $result = $this->getType()->convertToPHPValue('TEST', $this->getPlatform());
 
-        $this->assertEquals(array('TEST'), $result);
+        $this->assertEquals(['TEST'], $result);
     }
 
     public function testGetSQLDeclaration() {
 
-        $result = $this->getType()->getSQLDeclaration(array(), $this->getPlatform());
+        $result = $this->getType()->getSQLDeclaration([], $this->getPlatform());
 
         $this->assertEquals('SET ( \'GET\',\'SET\' )', $result);
     }
